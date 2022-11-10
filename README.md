@@ -19,7 +19,11 @@ Dexter takes a better approach where you can press multiple keys a once to creat
 
 ```
  1 1 1 1 1
---- or ---
+```
+
+_--- or ---_
+
+```
 16 8 4 2 1
 ```
 
@@ -41,8 +45,54 @@ $$
 range\ increased = \frac{\left(2^n - 2\right)}{n}\ times
 $$
 
-Which is exponential increase with resp
+Which is near exponential increase.
 
 ## Usage
 
+### Philosophy
 
+Dexter user experience is designed keeping few things in mind
+
+1. Humans make mistakes.
+2. Humans mostly realise they have made a mistake halfway through.
+3. Humans try to course correct the mistake.
+
+### Structure
+
+```
+(3) (4)
+(5) (6) (7) (8) (9)...
+
+(1) (2) [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ]
+```
+
+**LED indicators:**
+
+- `(1)` Activity Indicator
+- `(2)` Digit Registered Indicator
+- `(3)` Success Indicator
+- `(4)` Wrong Password Indicator
+- `(5+)` Digits entered Indicator
+
+**Keys:**
+
+- `[1-5]` Keys ordered in MSB order
+
+### Workflows
+
+**Login Flow:**
+
+1. Initially the lock is in standby, `(1)` is off, to activate it press first key then `(1)` pops up.
+2. Start with your combination first digit in binary say `01101` when your are holding down given combination `(2)` is blinking indicating you can press more keys.
+3. When you lift your hand up, `(2)` stops blinking momentarily indicating your digit input has been recorded. One more LED lights up in progress bar made up of `(5+)`
+4. Once you enter correct password, lock opens and `(3)` stays lit up.
+5. Incase of wrong password, `(4)` lights up for a few seconds.
+
+**Password Change flow:**
+
+1. Once lock is unlocked, press all keys, `(3)` starts blinking, now you can enter combination like in the login flow.
+2. Fill all the digits indicated by `(5+)` progress bar.
+3. **NOTE:** You can't use `00000` and `11111` in this passcode
+
+**Forgot Password:**
+1. Break the lock, if you were smart enough to created a reset button press that enter default password.
