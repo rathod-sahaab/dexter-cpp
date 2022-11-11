@@ -1,6 +1,6 @@
 # Dexter
 
-Dexter is an electronic lock. The way to open and close this lock is what makes it unique is how your password.
+Dexter is an electronic lock. The way to open and close this lock is what makes it unique. Instead of pressing one key at a time you push multiple.
 
 Normal pass-code/pin locks use a mechanism where you can activate one key/switch at a time, for this you need a lot more keys/switches for given range.
 
