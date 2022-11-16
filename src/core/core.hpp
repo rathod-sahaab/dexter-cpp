@@ -1,22 +1,22 @@
+#include "../commons/types.hpp"
+#include "hasher/hash.hpp"
 #include "store/array-store.hpp"
 #include <string.h>
-
-constexpr const int DEXTER_MAX_PASSWORD_LENGTH = 100;
 
 namespace Dexter {
 class Core {
   // members
-  int m_password_length;
-  int m_password[DEXTER_MAX_PASSWORD_LENGTH + 1];
+  Hash m_password_hash;
 
   // dependencies
   IArrayStore &d_password_store;
+  IHasher &d_hasher;
 
 public:
-  Core(IArrayStore &array_store);
+  Core(IArrayStore &array_store, IHasher &hasher);
 
   int get_password_length() const;
-  bool set_password(const int originalPassword[], const int password[]);
-  bool verify_password(const int password[]) const;
+  bool set_password(const Password &old_password, const Password &new_password);
+  bool verify_password(const Password &password) const;
 };
 } // namespace Dexter

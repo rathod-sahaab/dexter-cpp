@@ -1,16 +1,17 @@
 #ifndef DEXTER_ARRAY_STORE_HPP
 #define DEXTER_ARRAY_STORE_HPP
 
-#include "../../commons/pair.hpp"
+#include "../../commons/collections.hpp"
+#include "../../commons/constants.hpp"
 
 namespace Dexter {
 
 class IArrayStore {
 public:
-  virtual void set(int numbers_length, int numbers[]) = 0;
+  virtual void set(const array<unsigned short, DEXTER_MAX_HASH_LENGTH> &hash) = 0;
 
   /// Returns the array and the number of elements in the array
-  virtual Dexter::pair<int, int[]> get() = 0;
+  virtual array<unsigned short, DEXTER_MAX_HASH_LENGTH> get() = 0;
 };
 } // namespace Dexter
 
