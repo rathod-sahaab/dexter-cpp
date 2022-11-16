@@ -1,6 +1,10 @@
-#include "../commons/types.hpp"
+#ifndef DEXTER_CORE_HPP
+#define DEXTER_CORE_HPP
+
+#include "commons/types.hpp"
 #include "hasher/hash.hpp"
 #include "store/array-store.hpp"
+
 #include <string.h>
 
 namespace Dexter {
@@ -20,3 +24,5 @@ public:
   bool verify_password(const Password &password) const;
 };
 } // namespace Dexter
+
+#endif // DEXTER_CORE_HPP

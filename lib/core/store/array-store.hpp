@@ -1,8 +1,8 @@
 #ifndef DEXTER_ARRAY_STORE_HPP
 #define DEXTER_ARRAY_STORE_HPP
 
-#include "../../commons/collections.hpp"
-#include "../../commons/constants.hpp"
+#include "../commons/collections.hpp"
+#include "../commons/constants.hpp"
 
 namespace Dexter {
 
